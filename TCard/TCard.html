@@ -1,0 +1,1128 @@
+<head><link href="https://dl.dropboxusercontent.com/s/u1tltw4udi82v6s/lntopics.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Rye|Sanchez|Open+Sans+Condensed|" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Unica+One|Megrim|Antic|Ubuntu Condensed|Sarpanch|Oswald|Dosis|Merriweather|dancing script|Roboto|Montserrat|Abril Fatface" rel="stylesheet" type="text/css">
+  
+    <script type="text/javascript" src="https://lux-novae.forumactif.com/15452.js"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+    
+    <style>
+       /* Tooltip */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  /* end Tooltip */
+  
+  .ongletcont::-webkit-scrollbar {
+    display: none;
+  }
+  
+  span:empty {
+    display: none; /* or visibility: hidden */
+  }
+  
+  body {
+      background-image: url(https://www.zupimages.net/up/23/11/2gt0.png);
+    background-color: #484848;
+  }
+  
+  .tcard-header {
+    background-color: #484848;
+    width: 575px;
+    display: flex;
+    height: 100px;
+    font-family: ubuntu condensed;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-bottom: 8px solid #1f1f1f;
+    align-items: center;
+  }
+  
+  #tcardId {
+      height:fit-content;
+  }
+  
+  .tcard-name span {
+    color: white;
+    font-family: 'Roboto Condensed';
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  
+  .tcard-name {
+    padding: 15px 25px;
+  }
+  
+  .tcard-icon {
+    height: 90px;
+    width: 90px;
+    background-color: #2e2e2e;
+    border-radius: 100%;
+    border: 8px solid #1f1f1f;
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 10%);
+    animation: pulsating 1.75s infinite cubic-bezier(0.66, 0, 0, 1);
+  }
+  
+  .tcard-bg {
+    margin: 0 auto;
+    background-color: #5b5b5b;
+    background-image: url(https://i.servimg.com/u/f84/12/49/78/99/untitl24.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 575px;
+    font-family: "Roboto Condensed";
+    padding-top: 25px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #cbcbcb;
+    text-align: justify;
+    position: relative;
+    padding-bottom: 10px;
+    border-radius: 5px 5px 5px 5px;
+  }
+  
+  .tcard-img {
+    width: 330px;
+    height: 100px;
+    object-fit: cover;
+    -webkit-clip-path: polygon(0 0%, 100% 0, 75% 100%, 0% 100%);
+  }
+  
+  .tcard-middle {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .tableonglets {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .tableonglets span.ongletcont {
+    display: none;
+  }
+  
+  .tableonglets input {
+    display: none;
+  }
+  
+  .tableonglets input:checked+span.ongletcont {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .tableonglets span.ongletcont {
+    width: 200px;
+    height: 200px;
+    padding: 10px 15px;
+    overflow: auto;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  .tableonglets label.onglet {
+    text-align: center;
+    padding: 3px 20px;
+    font-family: Unica one;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    color: #ddd;
+    background: #363636;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  
+  .tableonglets label.onglet:hover {
+    color: #e9cba3;
+    transition: 0.4s;
+  }
+  
+  .tableonglets input:checked .tableonglets label.onglet {
+    color: #e9cba3;
+    transition: 0.4s;
+  }
+  
+  .tabs1 {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .item {
+    display: flex;
+    font-family: Roboto Condensed;
+    font-size: 10px;
+    font-weight: normal;
+  }
+  
+  .item div:first-child {
+    display: flex;
+    background-color: #f4f4f4;
+    border-right: 2px solid #e9e9e9;
+    align-items: center;
+  }
+  
+  .ct div:first-child {
+    padding: 4px;
+  }
+  
+  .item div:nth-child(2) {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #444;
+    display: flex;
+    width: 170px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .item div:nth-child(3) {
+    background-color: #4A4A4A;
+    align-items: center;
+    padding: 10px;
+    color: #f4f4f4;
+  }
+  
+  .substract {
+    background-color: #2e4b88;
+  }
+  
+  .add {
+    background-color: rgb(25, 110, 58);
+  }
+  
+  .delete {
+    background-color: red;
+  }
+  
+  .tc-empire .tcard-header,
+  .tc-empire .tcard-icon {
+    border-color: #5C9E6C;
+  }
+  
+  .tc-empire .tcard-icon {
+    box-shadow: 0 0 0 0 rgba(92 158 108 / 30%);
+  }
+  
+  .tc-civils .tcard-header,
+  .tc-civils .tcard-icon {
+    border-color: #91BA7D;
+  }
+  
+  .tc-civils .tcard-icon {
+    box-shadow: 0 0 0 0 rgba(145 186 125 / 30%);
+  }
+  
+  .tc-revo .tcard-header,
+  .tc-revo .tcard-icon {
+    border-color: #EBA02F;
+  }
+  
+  .tc-revo .tcard-icon {
+    box-shadow: 0 0 0 0 rgba(235 160 47 / 30%);
+  }
+  
+  .tc-genesis .tcard-header,
+  .tc-genesis .tcard-icon {
+    border-color: #BC8FCF;
+  }
+  
+  .tc-genesis .tcard-icon {
+    box-shadow: 0 0 0 0 rgba(188 143 207 / 30%);
+  }
+  
+  .boîteniveau {
+    display: flex;
+    margin-top: 65px;
+    margin-left: 10px;
+  }
+  
+  .boîteniveau div:first-child,
+  .boîteniveau div:last-child {
+    height: 2px;
+    width: 110px;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 0) 0%, rgba(68, 68, 68, 1) 50%, rgba(0, 212, 255, 0) 100%);
+    position: absolute;
+  }
+  
+  .boîteniveau div:first-child {
+    margin-top: -5px;
+  }
+  
+  .boîteniveau div:last-child {
+    margin-top: 21px;
+  }
+  
+  .boîteniveau div:nth-child(2),
+  .boîteniveau div:nth-child(3),
+  .boîteniveau div:nth-child(4),
+  .boîteniveau div:nth-child(5),
+  .boîteniveau div:nth-child(6),
+  .boîteniveau div:nth-child(7) {
+    background-color: #444;
+    width: 12px;
+    height: 18px;
+    transform: skew(-25deg);
+    margin-left: 5px;
+  }
+  
+  .tc-civils .rangd div:nth-child(2),
+  .tc-civils .rangc div:nth-child(2),
+  .tc-civils .rangb div:nth-child(2),
+  .tc-civils .ranga div:nth-child(2),
+  .tc-civils .rangs div:nth-child(2),
+  .tc-civils .rangex div:nth-child(2) {
+    background-color: #505b4b;
+  }
+  
+  .tc-civils .rangc div:nth-child(3),
+  .tc-civils .rangb div:nth-child(3),
+  .tc-civils .ranga div:nth-child(3),
+  .tc-civils .rangs div:nth-child(3),
+  .tc-civils .rangex div:nth-child(3) {
+    background-color: #5d6c54;
+  }
+  
+  .tc-civils .rangb div:nth-child(4),
+  .tc-civils .ranga div:nth-child(4),
+  .tc-civils .rangs div:nth-child(4),
+  .tc-civils .rangex div:nth-child(4) {
+    background-color: #697e5d;
+  }
+  
+  .tc-civils .ranga div:nth-child(5),
+  .tc-civils .rangs div:nth-child(5),
+  .tc-civils .rangex div:nth-child(5),
+  .tc-civils .t1 span {
+    background-color: #759067;
+  }
+  
+  .tc-civils .rangs div:nth-child(6),
+  .tc-civils .rangex div:nth-child(6),
+  .tc-civils .t2 span {
+    background-color: #82a372;
+  }
+  
+  .tc-civils .rangex div:nth-child(7),
+  .tc-civils .t3 span {
+    background-color: #91b97d;
+  }
+  
+  
+  .tc-empire .rangd div:nth-child(2),
+  .tc-empire .rangc div:nth-child(2),
+  .tc-empire .rangb div:nth-child(2),
+  .tc-empire .ranga div:nth-child(2),
+  .tc-empire .rangs div:nth-child(2),
+  .tc-empire .rangex div:nth-child(2) {
+    background-color: #3f4f43;
+  }
+  
+  .tc-empire .rangc div:nth-child(3),
+  .tc-empire .rangb div:nth-child(3),
+  .tc-empire .ranga div:nth-child(3),
+  .tc-empire .rangs div:nth-child(3),
+  .tc-empire .rangex div:nth-child(3) {
+    background-color: #49564c;
+  }
+  
+  .tc-empire .rangb div:nth-child(4),
+  .tc-empire .ranga div:nth-child(4),
+  .tc-empire .rangs div:nth-child(4),
+  .tc-empire .rangex div:nth-child(4) {
+    background-color: #4d6653;
+  }
+  
+  .tc-empire .ranga div:nth-child(5),
+  .tc-empire .rangs div:nth-child(5),
+  .tc-empire .rangex div:nth-child(5),
+  .tc-empire .t1 span {
+    background-color: #51785b;
+  }
+  
+  .tc-empire .rangs div:nth-child(6),
+  .tc-empire .rangex div:nth-child(6),
+  .tc-empire .t2 span {
+    background-color: #578963;
+  }
+  
+  .tc-empire .rangex div:nth-child(7),
+  .tc-empire .t3 span {
+    background-color: #5c9e6c;
+  }
+  
+  
+  .tc-genesis .rangd div:nth-child(2),
+  .tc-genesis .rangc div:nth-child(2),
+  .tc-genesis .rangb div:nth-child(2),
+  .tc-genesis .ranga div:nth-child(2),
+  .tc-genesis .rangs div:nth-child(2),
+  .tc-genesis .rangex div:nth-child(2) {
+    background-color: #57455e;
+  }
+  
+  .tc-genesis .rangc div:nth-child(3),
+  .tc-genesis .rangb div:nth-child(3),
+  .tc-genesis .ranga div:nth-child(3),
+  .tc-genesis .rangs div:nth-child(3),
+  .tc-genesis .rangex div:nth-child(3) {
+    background-color: #625467;
+  }
+  
+  .tc-genesis .rangb div:nth-child(4),
+  .tc-genesis .ranga div:nth-child(4),
+  .tc-genesis .rangs div:nth-child(4),
+  .tc-genesis .rangex div:nth-child(4) {
+    background-color: #77617f;
+  }
+  
+  .tc-genesis .ranga div:nth-child(5),
+  .tc-genesis .rangs div:nth-child(5),
+  .tc-genesis .rangex div:nth-child(5),
+  .tc-genesis .t1 span {
+    background-color: #8c6f97;
+  }
+  
+  .tc-genesis .rangs div:nth-child(6),
+  .tc-genesis .rangex div:nth-child(6),
+  .tc-genesis .t2 span {
+    background-color: #a27eb2;
+  }
+  
+  .tc-genesis .rangex div:nth-child(7),
+  .tc-genesis .t3 span {
+    background-color: #bc8fcf;
+  }
+  
+  
+  .tc-revo .rangd div:nth-child(2),
+  .tc-revo .rangc div:nth-child(2),
+  .tc-revo .rangb div:nth-child(2),
+  .tc-revo .ranga div:nth-child(2),
+  .tc-revo .rangs div:nth-child(2),
+  .tc-revo .rangex div:nth-child(2) {
+    background-color: #5b4c36;
+  }
+  
+  .tc-revo .rangc div:nth-child(3),
+  .tc-revo .rangb div:nth-child(3),
+  .tc-revo .ranga div:nth-child(3),
+  .tc-revo .rangs div:nth-child(3),
+  .tc-revo .rangex div:nth-child(3) {
+    background-color: #6b5536;
+  }
+  
+  .tc-revo .rangb div:nth-child(4),
+  .tc-revo .ranga div:nth-child(4),
+  .tc-revo .rangs div:nth-child(4),
+  .tc-revo .rangex div:nth-child(4) {
+    background-color: #896734;
+  }
+  
+  .tc-revo .ranga div:nth-child(5),
+  .tc-revo .rangs div:nth-child(5),
+  .tc-revo .rangex div:nth-child(5),
+  .tc-revo .t1 span {
+    background-color: #a87933;
+  }
+  
+  .tc-revo .rangs div:nth-child(6),
+  .tc-revo .rangex div:nth-child(6),
+  .tc-revo .t2 span {
+    background-color: #c78a31;
+  }
+  
+  .tc-revo .rangex div:nth-child(7),
+  .tc-revo .t3 span {
+    background-color: #eba02f;
+  }
+  
+  .tc-top {
+    display: flex;
+    margin-top: -63px;
+    margin-left: 10px;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .t1,
+  .t2,
+  .t3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+  
+  .t1 span,
+  .t2 span,
+  .t3 span {
+    background-color: #444;
+    color: #ddd;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 10px;
+  }
+  
+  .tcard-pk-bg {
+    margin: 0 auto;
+    background-color: #5b5b5b;
+    background-image: url(https://i.servimg.com/u/f84/12/49/78/99/untitl24.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 575px;
+    font-family: "Roboto Condensed";
+    padding-top: 25px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #cbcbcb;
+    text-align: justify;
+    position: relative;
+    padding-bottom: 10px;
+    border-radius: 5px 5px 5px 5px;
+  }
+  
+  
+  .pkmonglets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .pkmonglets span.poketabcont {
+    display: none;
+  }
+  
+  .pkmonglets input {
+    display: none;
+  }
+  
+  .pkmonglets input:checked+span.poketabcont {
+    display: flex;
+    width: 555px;
+    overflow: hidden;
+    border-radius: 3px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .pkmonglets span.poketabcont {}
+  
+  .pkmonglets label.poketab {
+    text-align: center;
+    border-radius: 100%;
+    padding: 5px;
+    border: 2px solid #2e2e2e;
+    background: #363636;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  
+  .tabs2 {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pktalent {
+    background-color: #f5f5f5;
+    padding: 7px 20px 3px 10px;
+    clip-path: polygon(0 0, 98% 0, 93% 100%, 0% 100%);
+    width: 204px;
+    height: 30px;
+  }
+  
+  .pk-att {
+    height: 140px;
+    overflow: auto;
+    overflow-y: scroll;
+    margin-top: 45px;
+    margin-left: -25px;
+    display: grid;
+    gap: 2px;
+    font-family: 'Ubuntu Condensed';
+    font-size: 10px;
+  }
+  
+  .pk-att::-webkit-scrollbar,
+  .poke-descr::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .poke-descr {
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    padding: 8px 15px;
+    width: 525px;
+    height: 60px;
+    color: #444;
+    font-family: 'Roboto Condensed';
+    font-size: 13px;
+    text-align: justify;
+    overflow: auto;
+  }
+  
+  
+  .poke-container {
+    flex-wrap: wrap;
+    width: 575px;
+    background: rgba(46, 46, 46, 0.6);
+    display: flex;
+    font-size: 11px;
+    color: #444;
+    font-family: Roboto Condensed;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .poke-header {
+    display: flex;
+    width: 400px;
+    margin-top: 0px;
+    background: linear-gradient(90deg, #d6b55a, #735a4a);
+    clip-path: polygon(0 0, 71% 0, 68% 100%, 0% 100%);
+    margin-left: -10px;
+    gap: 25px;
+    overflow: hidden;
+    height: 40px;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-family: Poppins;
+    font-size: 15px;
+  }
+  
+  .poke-header img {
+    background-color: #2e2e2e;
+    border: 5px solid rgba(255, 255, 255, 0.9);
+    height: 56px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    width: 68px;
+    border-radius: 100px;
+  }
+  
+  .poke-infos {
+    display: flex;
+    align-items: center;
+  }
+  
+  .poke-infos div:first-child {
+    display: flex;
+    flex-direction: column;
+    width: 105px;
+    background-color: #444;
+    color: white;
+  }
+  
+  .poke-infos span {
+    padding: 5px 10px;
+    border-bottom: 2px solid #5D5D5D;
+  }
+  
+  
+  .poke-infos div:last-child {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    text-align: left;
+    width: 156px;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  }
+  
+  
+  .att {
+    display: flex;
+  }
+  
+  .typsprite {
+    position: absolute;
+    margin-top: 172px;
+    margin-left: -167px;
+  }
+  
+  .chroma {
+    position: absolute;
+    height: 20px;
+    margin-top: 108px;
+    z-index: 3;
+    mix-blend-mode: luminosity;
+    margin-left: -39px;
+  }
+  
+  .lock {
+    display: none;
+  }
+  
+  .box2 {
+    margin-left: -103px;
+    display: flex;
+  }
+  
+  .poke-det {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .poke-det div:first-child {
+    margin-top: 15px;
+    width: 141px;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .poke-det div:nth-child(2) {
+    display: flex;
+    margin-left: -15px;
+  }
+  
+  .poke-det div:nth-child(2) img {
+    background-color: #2e2e2e;
+    border-radius: 100%;
+    border: 6px solid rgba(255, 255, 255, 0.4);
+  }
+  
+  .poke-det div:nth-child(2) span {
+    background-color: #343b41;
+    border-radius: 100px;
+    border: 6px solid rgba(255, 255, 255, 0.4);
+    font-family: 'Poppins';
+    font-size: 17px;
+    padding: 8px 1px 5px 2px;
+    width: 30px;
+    margin-left: -31px;
+    margin-top: 0px;
+    height: 20px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    color: #f4f4f4;
+  }
+  
+  .poke-det div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: -180px;
+    margin-top: -30px;
+    flex-direction: column;
+  }
+  
+  .poke-det div:last-child span {
+    background-color: #1f1f1f;
+    color: white;
+    font-family: 'Roboto Condensed';
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 4px 16px 2px 14px;
+    width: fit-content;
+    clip-path: polygon(10% 0, 100% 0, 89% 100%, 0% 100%);
+  }
+  
+  .poke-det div:last-child img {
+    opacity: 0;
+    height: 20px;
+  }
+  
+  .shiny div:last-child img {
+    opacity: 1;
+  }
+  
+  .att img {
+    background-color: #1f1f1f;
+    padding: 7px;
+    height: 15px;
+  }
+  
+  .att div:nth-child(2) {
+    background-color: #2e2e2e;
+    color: #ddd;
+    padding: 7px 7px 0px 5px;
+    width: 80px;
+  }
+  
+  .att div:last-child {
+    background-color: #f5f5f5;
+    padding: 7px 4px 0 2px;
+    width: 20px;
+    color: #444
+  }
+  
+  .tc-genesis .poke-header {
+    background: #BC8FCF;
+  }
+  
+  .tc-empire .poke-header {
+    background: #5C9E6C;
+  }
+  
+  .tc-civils .poke-header {
+    background: #91BA7D;
+  }
+  
+  .tc-revo .poke-header {
+    background: #EBA02F;
+  }
+  
+  
+  .boite-pkm {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 25px;
+    gap: 10px;
+  }
+  
+  .clear-pkm {
+    height: 5px;
+    background: #2e2e2e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  @-webkit-keyframes pulsating {
+    to {
+      box-shadow: 0 0 0 25px rgba(255, 255, 255, 0);
+    }
+  }
+  
+  @-moz-keyframes pulsating {
+    to {
+      box-shadow: 0 0 0 25px rgba(255, 255, 255, 0);
+    }
+  }
+  
+  @-ms-keyframes pulsating {
+    to {
+      box-shadow: 0 0 0 25px rgba(255, 255, 255, 0);
+    }
+  }
+  
+  @keyframes pulsating {
+    to {
+      box-shadow: 0 0 0 25px rgba(255, 255, 255, 0);
+    }
+  }
+      
+      .nargan1, .nargan2{
+      background: url(https://www.zupimages.net/up/21/33/iljf.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #1f1f1f;
+      width: fit-content;
+      height:fit-content;
+      padding: 20px;
+      border-radius: 3px;
+      color: #ddd;
+      font-family: Poppins;
+      text-transform: uppercase;
+      text-align:center;
+      border: 5px solid #181818;
+      line-height:1.8;
+      }
+      
+      .narganfloat{
+      display:flex;
+      margin-left:5%;
+      gap:15px;
+      }
+      
+       h2{ 
+      margin: 0;
+      }
+      
+      .nargan1 div{
+      text-align:left;
+      }
+      
+      .nargan2 textarea{
+      max-height:100px;
+      max-width:350px;
+      }
+      
+      button, .item button, .but{
+      font-family:Poppins;
+      border-radius:2px;
+      cursor:pointer;
+      text-transform:uppercase;
+      background-color:#2e2e2e;
+      color:#ddd;
+      margin-left:2px;
+      border:none;
+      }
+      
+    </style>
+  
+  <body>
+    <div class="narganfloat">
+      <div class="nargan1">
+          <h2>Infos Personnage</h2>
+          <form  id="tCardform" onsubmit="fillTCard()">
+           <div>  Banner (URL)
+              <input id="tCardform_Banner" type="text" size="50"
+              value="https://i.servimg.com/u/f40/18/51/38/10/alisha12.png">
+                <br/>
+              Icône (URL)
+              <input id="tCardform_Icone" type="text" size="50"
+                  value="https://i.servimg.com/u/f40/18/51/38/10/alisha11.png">
+  <br/>
+              Prénom Nom
+              <input id="tCardform_PrenomNom" type="text" value="Alisha O'bowen"><br/>
+  
+              Nom du personnage
+              <input id="tCardform_NomPersonnage" type="text" value="March 7"><br/>
+  
+              Nom de l'oeuvre
+                <input id="tCardform_NomOeuvre" type="text" value="Honkai star rail"><br/>
+                
+              Rang
+                <select id="tCardform_Rang">
+                  <option value="rangd">D</option>
+                  <option value="rangc">C</option>
+                  <option value="rangb">B</option>
+                  <option value="ranga">A</option>
+                  <option value="rangs">S</option>
+                  <option value="rangex">EX</option>
+                </select><br/>
+  
+              Faction
+              <select id="tCardform_Faction">
+                <option value="tc-genesis">Genesis</option>
+                <option value="tc-revo">Révolution</option>
+                <option value="tc-civils">Civil</option>
+                <option value="tc-empire">Empire</option>
+              </select>
+                </div><br/>
+                <h2>talents</h2>              
+              T1<br/>
+              <input id="tCardform_T1-Talent1" type="text" value="Aventurière"><br/>
+              <input id="tCardform_T1-Talent2" type="text" value="Passion PNJ"><br/>
+              <input id="tCardform_T1-Talent3" type="text" value="Second starter"><br/>
+              <input id="tCardform_T1-Talent4" type="text" value="Shiny spotter"><br/>
+              <input id="tCardform_T1-Talent5" type="text" value="Double salaire"><br/>
+              <input id="tCardform_T1-Talent6" type="text" value=""><br/>
+              <input id="tCardform_T1-Talent7" type="text" value=""><br/>
+              <input id="tCardform_T1-Talent8" type="text" value=""><br/>
+              <input id="tCardform_T1-Talent9" type="text" value=""><br/>
+              <input id="tCardform_T1-Talent10" type="text" value=""><br/>
+  <br/>
+              T2<br/>
+              <input id="tCardform_T2-Talent1" type="text" value="Shiny spotter +"><br/>
+              <input id="tCardform_T2-Talent2" type="text" value="Challenger"><br/>
+              <input id="tCardform_T2-Talent3" type="text"><br/>
+              <input id="tCardform_T2-Talent4" type="text"><br/>
+              <input id="tCardform_T2-Talent5" type="text"><br/>
+              <input id="tCardform_T2-Talent6" type="text"><br/>
+              <input id="tCardform_T2-Talent7" type="text"><br/>
+              <input id="tCardform_T2-Talent8" type="text"><br/>
+  <br/>
+              T3<br/>
+              <input id="tCardform_T3-Talent1" type="text"><br/>
+              <input id="tCardform_T3-Talent2" type="text"><br/>
+              <input id="tCardform_T3-Talent3" type="text"><br/>
+  <br/>
+              <button type="button" onclick="fillTCard()">Update</button>
+              <!--<button type="button" onclick="clearForm()">Clear</button>-->
+           </form>
+       </div>
+  
+      <div class="nargan2">
+          <h2>Ajouter un objet ou une CT/DT</h2>
+          <form id="addItemForm" onsubmit="addItem();return false">
+              <input type="radio" id="addItemForm_Objet" name="type" value="Objet" required>
+              <label for="html">Objet</label>
+              <input type="radio" id="addItemForm_CTDT" name="type" value="CTDT">
+              <label for="css">CT/DT</label><br>
+              Icone (URL)
+              <input id="addItemForm_Icone" type="url" required><br>    
+              Nom
+              <input id="addItemForm_Nom" type="text" required><br>    
+              Quantité
+              <input id="addItemForm_Quantite" type="number" required><br>    <br/>
+              <input class="but" name="submitObjet" type="submit" value="Ajouter à l'inventaire">
+          </form><br/>
+                <h2>CODE à COPIER</h2><div>
+    <textarea id="textAreaCode" rows="30" cols="150"></textarea><br/><br/>
+              <div class="tooltip">
+                  <button onclick="copyToClipboard()" onmouseout="outFunc()">
+                      <span class="tooltiptext" id="myTooltip">Copier dans le presse-papier</span>
+                      Copier
+                  </button>
+              </div>
+                </div>
+      </div>
+  
+      <div id="tcardId" class="tcard-bg tc-genesis">
+          <div class="tcard-header">
+              <!---IMAGE BANNER --->
+              <img class="tcard-img" id="tCard_Banner" src="https://www.zupimages.net/up/23/14/yce0.png" />
+              <div class="tcard-name">
+                  <!---IDENTITE --->
+                  <span id="tCard_PrenomNom">prénom nom</span>
+                  <br />
+                  <nomPerso id="tCard_NomPersonnage">ft. nom du personnage</nomPerso>
+                  (<nomOeuvre id="tCard_NomOeuvre">nom de l'œuvre</nomOeuvre>)
+              </div>
+          </div>
+          <div class="tcard-middle">
+              <div>
+                  <div class="tc-top">
+                      <!----ICÔNE 90x90 ---->
+                      <img class="tcard-icon" id="tCard_Icone" src="https://www.zupimages.net/up/23/14/7jnx.png" />
+                      <!---RANG --->
+                      <div class="boîteniveau rangd">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                      </div>
+                  </div>
+                  <!----TALENTS--->
+                  <div class="t1">
+                      <!---T1--->
+                      <span id="tCard_T1-Talent1"></span>
+                      <span id="tCard_T1-Talent2"></span>
+                      <span id="tCard_T1-Talent3"></span>
+                      <span id="tCard_T1-Talent4"></span>
+                      <span id="tCard_T1-Talent5"></span>
+                      <span id="tCard_T1-Talent6"></span>
+                      <span id="tCard_T1-Talent7"></span>
+                      <span id="tCard_T1-Talent8"></span>
+                      <span id="tCard_T1-Talent9"></span>
+                      <span id="tCard_T1-Talent10"></span>
+                  </div>
+                  <!---T2--->
+                  <div class="t2">
+                      <span id="tCard_T2-Talent1"></span>
+                      <span id="tCard_T2-Talent2"></span>
+                      <span id="tCard_T2-Talent3"></span>
+                      <span id="tCard_T2-Talent4"></span>
+                      <span id="tCard_T2-Talent5"></span>
+                      <span id="tCard_T2-Talent6"></span>
+                      <span id="tCard_T2-Talent7"></span>
+                      <span id="tCard_T2-Talent8"></span>
+                  </div>
+                  <!---T3--->
+                  <div class="t3">
+                      <span id="tCard_T3-Talent1"></span>
+                      <span id="tCard_T3-Talent2"></span>
+                      <span id="tCard_T3-Talent3"></span>
+                  </div>
+              </div>
+              <!---INVENTAIRE --->
+              <div class="tableonglets">
+                  <div class="tabs1">
+                      <label for="o1" class="onglet">objets</label>
+                      <label for="o2" class="onglet">ct/dt</label>
+                  </div>
+                  
+                  <!---OBJETS--->
+                  <input id="o1" type="radio" name="onglets" checked />
+                  <span id="objets" class="ongletcont" >
+                      <!---ITEM--->
+                      <div class="item">
+                          <div><img src="https://www.pokepedia.fr/images/8/87/Pok%C3%A9_Ball.png" /></div>
+                          <div>Pokéballs</div>
+                          <div>x5</div>
+                          <button class="substract">-</button>
+                          <button class="add">+</button>
+                          <!--<button class="delete">x</button>-->
+                      </div>
+                      <!---ITEM --->
+                      <div class="item">
+                          <div><img src="https://www.pokebip.com/pages/icones/balls/super.png" /></div>
+                          <div>Superballs</div>
+                          <div>x3</div>
+                          <button class="substract">-</button>
+                          <button class="add">+</button>
+                          <!--<button class="delete">x</button>-->
+                      </div>
+                      <!---ITEM --->
+                      <div class="item">
+                          <div><img src="https://www.pokebip.com/pages/icones/balls/hyper.png" /></div>
+                          <div>Hyperball</div>
+                          <div>x1</div>
+                          <button class="substract">-</button>
+                          <button class="add">+</button>
+                          <!--<button class="delete">x</button>-->
+                      </div>
+                  </span>
+  
+                  <!---CT ET DT--->
+                  <input id="o2" type="radio" name="onglets" />
+                  <span id="ctdts" class="ongletcont ctdt">
+                      <!---ITEM--->
+                      <div class="item ct">
+                          <div><img src="https://archives.bulbagarden.net/media/upload/9/9a/Bag_TM_Normal_Sprite.png" /></div>
+                          <div>CT?? - nom ct</div>
+                          <div>x0</div>
+                          <button class="substract">-</button>
+                          <button class="add">+</button>
+                      </div>
+                  </span>
+              </div>
+          </div>
+      </div>
+  
+                </div>
+  </body>
