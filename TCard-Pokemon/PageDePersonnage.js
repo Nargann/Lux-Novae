@@ -4,17 +4,27 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 function redirect() {
-//var baseURL= window.location.href.split('https://lux-novae.forumactif.com/')[0];
-var codeTCard = document.getElementById('tcardId').outerHTML;
-sessionStorage.setItem("codeTCard",codeTCard);
-var baseURL= window.location.origin;
-var redirectPage = "/TCard/TCard.html" + "#" + window.location.pathname.substring(1);
-//http://127.0.0.1:3000/TCard/PageDePersonnage.html
-//http://127.0.0.1:3000/TCard/TCard.html
-var URL = baseURL + redirectPage;
-console.log(URL);
-console.log(window.location);
-window.location.href = URL; 
+    //var baseURL= window.location.href.split('https://lux-novae.forumactif.com/')[0];
+    var codeTCard = document.getElementById('tcardId').outerHTML;
+    sessionStorage.setItem("codeTCard",codeTCard);
+    var baseURL= window.location.origin;
+    var redirectPage = "/TCard/TCard.html" + "#" + window.location.pathname.substring(1);
+    var URL = baseURL + redirectPage;
+    console.log(URL);
+    console.log(window.location);
+    window.location.href = URL; 
+}
+
+function redirectToTCardPokemon() {
+    //var baseURL= window.location.href.split('https://lux-novae.forumactif.com/')[0];
+    var codeTCardPokemon = document.getElementById('tcardId-pokemon').outerHTML;
+    sessionStorage.setItem("codeTCardPokemon",codeTCardPokemon);
+    var baseURL= window.location.origin;
+    var redirectPage = "/TCard-Pokemon/TCard-Pokemon.html" + "#" + window.location.pathname.substring(1);
+    var URL = baseURL + redirectPage;
+    console.log(URL);
+    console.log(window.location);
+    window.location.href = URL; 
 }
 
 function hideSubAdd() {

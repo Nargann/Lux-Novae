@@ -1,16 +1,20 @@
 function showBtnTCardHelper() {
-    // console.log(window.location.origin);
+    //console.log(window.location.origin);
     try {
         var mainPosts = document.getElementsByClassName('main-post');
   
         for (let i = 0; i < mainPosts.length; i++) {
           var tcardDiv = mainPosts[i].children[1].getElementsByTagName('div')[2];
           var buttonTcardHelper = mainPosts[i].children[0].children[1].children[3];
-  
+
           if (tcardDiv) {
-            if (tcardDiv.id == "tcardId" || tcardDiv.id == "tcardId-pokemon") {
+            if (tcardDiv.id == "tcardId") {
                 buttonTcardHelper.style.visibility = 'visible';
                 buttonTcardHelper.style.display = 'block';
+            } else if (tcardDiv.id == "tcardId-pokemon") {
+              buttonTcardHelper.setAttribute("onclick","redirectToTCardPokemon()");
+              buttonTcardHelper.style.visibility = 'visible';
+              buttonTcardHelper.style.display = 'block';
             } else {
                 buttonTcardHelper.style.visibility = 'hidden';
                 buttonTcardHelper.style.display = 'none';

@@ -37,10 +37,10 @@ function refreshTextArea() {
 }
 
 function loadItemHTML() {
-    var codeTCard = sessionStorage.getItem("codeTCard");
-    sessionStorage.removeItem("codeTCard");
+    var codeTCard = sessionStorage.getItem("codeTCardPokemon");
+    sessionStorage.removeItem("codeTCardPokemon");
     if (codeTCard) {
-        document.getElementById("tcardId").outerHTML = codeTCard;
+        document.getElementById("tcardId-pokemon").outerHTML = codeTCard;
         document.getElementById("textAreaCode").value = document.getElementById('tcardId-pokemon').outerHTML; 
         showSubAdd();
     } else {
@@ -186,7 +186,7 @@ function addPokemon() {
 
     const imgTab = document.createElement('img');
     imgTab.className = "tCard_Pokeball";
-    imgTab.src = "https://www.pokebip.com/pages/icones/balls/bis.png"
+    imgTab.src = "https://www.pokebip.com/pages/icones/balls/bis.png";
 
     labelTab.appendChild(imgTab);
     tabs2.appendChild(labelTab);
