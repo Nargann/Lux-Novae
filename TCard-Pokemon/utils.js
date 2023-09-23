@@ -179,7 +179,7 @@ function addPokemon() {
 
     const labelTab = document.createElement('label');
     labelTab.setAttribute('for', forLabelTab);
-    labelTab.className = "poketab evtab";
+    labelTab.className = "poketab";
     labelTab.checked = true;
     labelTab.setAttribute('onclick', 'reloadPokemon(this)');
     labelTab.setAttribute('oncontextmenu', 'deletePokemon(event,this)');
