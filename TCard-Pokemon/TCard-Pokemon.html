@@ -1,0 +1,1189 @@
+<head>
+  <link
+    href="https://dl.dropboxusercontent.com/s/u1tltw4udi82v6s/lntopics.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="http://fonts.googleapis.com/css?family=Rye|Sanchez|Open+Sans+Condensed|"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="http://fonts.googleapis.com/css?family=Unica+One|Megrim|Antic|Ubuntu Condensed|Sarpanch|Oswald|Dosis|Merriweather|dancing script|Roboto|Montserrat|Abril Fatface"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <script
+    type="text/javascript"
+    src="https://lux-novae.forumactif.com/15452.js"
+  ></script>
+
+  <script type="text/javascript" src="./utils.js"
+  ></script>  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<style>
+  /* Tooltip */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555555 transparent transparent transparent;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  /* end Tooltip */
+
+  .ongletcont::-webkit-scrollbar {
+    display: none;
+  }
+
+  span:empty {
+    display: none; /* or visibility: hidden */
+  }
+
+  body {
+    background-image: url(https://www.zupimages.net/up/23/11/2gt0.png);
+    background-color: #484848;
+  }
+
+  .tcard-header {
+    background-color: #484848;
+    width: 575px;
+    display: flex;
+    height: 100px;
+    font-family: ubuntu condensed;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-bottom: 8px solid #1f1f1f;
+    align-items: center;
+  }
+
+  #tcardId {
+    height: fit-content;
+  }
+
+  .tcard-name span {
+    color: white;
+    font-family: "Roboto Condensed";
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+
+  .tcard-name {
+    padding: 15px 25px;
+  }
+
+  .tcard-icon {
+    height: 90px;
+    width: 90px;
+    background-color: #2e2e2e;
+    border-radius: 100%;
+    border: 8px solid #1f1f1f;
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 10%);
+    animation: pulsating 1.75s infinite cubic-bezier(0.66, 0, 0, 1);
+  }
+
+  .tcard-bg {
+    margin: 0 auto;
+    background-color: #5b5b5b;
+    background-image: url(https://i.servimg.com/u/f84/12/49/78/99/untitl24.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 575px;
+    font-family: "Roboto Condensed";
+    padding-top: 25px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #cbcbcb;
+    text-align: justify;
+    position: relative;
+    padding-bottom: 10px;
+    border-radius: 5px 5px 5px 5px;
+  }
+
+  .tcard-img {
+    width: 330px;
+    height: 100px;
+    object-fit: cover;
+    -webkit-clip-path: polygon(0 0%, 100% 0, 75% 100%, 0% 100%);
+  }
+
+  .tcard-middle {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .tableonglets {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tableonglets span.ongletcont {
+    display: none;
+  }
+
+  .tableonglets input {
+    display: none;
+  }
+
+  .tableonglets input:checked + span.ongletcont {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tableonglets span.ongletcont {
+    width: 200px;
+    height: 200px;
+    padding: 10px 15px;
+    overflow: auto;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .tableonglets label.onglet {
+    text-align: center;
+    padding: 3px 20px;
+    font-family: Unica one;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    color: #ddd;
+    background: #363636;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .tableonglets label.onglet:hover {
+    color: #e9cba3;
+    transition: 0.4s;
+  }
+
+  .tableonglets input:checked .tableonglets label.onglet {
+    color: #e9cba3;
+    transition: 0.4s;
+  }
+
+  .tabs1 {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .item {
+    display: flex;
+    font-family: Roboto Condensed;
+    font-size: 10px;
+    font-weight: normal;
+  }
+
+  .item div:first-child {
+    display: flex;
+    background-color: #f4f4f4;
+    border-right: 2px solid #e9e9e9;
+    align-items: center;
+  }
+
+  .ct div:first-child {
+    padding: 4px;
+  }
+
+  .item div:nth-child(2) {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #444;
+    display: flex;
+    width: 170px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .item div:nth-child(3) {
+    background-color: #4a4a4a;
+    align-items: center;
+    padding: 10px;
+    color: #f4f4f4;
+  }
+
+  .substract {
+    background-color: #2e4b88;
+  }
+
+  .add {
+    background-color: rgb(25, 110, 58);
+  }
+
+  .delete {
+    background-color: red;
+  }
+
+  .tc-empire .tcard-header,
+  .tc-empire .tcard-icon {
+    border-color: #5c9e6c;
+  }
+
+  .tc-empire .tcard-icon {
+    box-shadow: 0 0 0 0 rgba(92 158 108 / 30%);
+  }
+
+  .tc-civils .tcard-header,
+  .tc-civils .tcard-icon {
+    border-color: #91ba7d;
+  }
+
+  .tc-civils .tcard-icon {
+    box-shadow: 0 0 0 0 rgba(145 186 125 / 30%);
+  }
+
+  .tc-revo .tcard-header,
+  .tc-revo .tcard-icon {
+    border-color: #eba02f;
+  }
+
+  .tc-revo .tcard-icon {
+    box-shadow: 0 0 0 0 rgba(235 160 47 / 30%);
+  }
+
+  .tc-genesis .tcard-header,
+  .tc-genesis .tcard-icon {
+    border-color: #bc8fcf;
+  }
+
+  .tc-genesis .tcard-icon {
+    box-shadow: 0 0 0 0 rgba(188 143 207 / 30%);
+  }
+
+  .boîteniveau {
+    display: flex;
+    margin-top: 65px;
+    margin-left: 10px;
+  }
+
+  .boîteniveau div:first-child,
+  .boîteniveau div:last-child {
+    height: 2px;
+    width: 110px;
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 0) 0%,
+      rgba(68, 68, 68, 1) 50%,
+      rgba(0, 212, 255, 0) 100%
+    );
+    position: absolute;
+  }
+
+  .boîteniveau div:first-child {
+    margin-top: -5px;
+  }
+
+  .boîteniveau div:last-child {
+    margin-top: 21px;
+  }
+
+  .boîteniveau div:nth-child(2),
+  .boîteniveau div:nth-child(3),
+  .boîteniveau div:nth-child(4),
+  .boîteniveau div:nth-child(5),
+  .boîteniveau div:nth-child(6),
+  .boîteniveau div:nth-child(7) {
+    background-color: #444;
+    width: 12px;
+    height: 18px;
+    transform: skew(-25deg);
+    margin-left: 5px;
+  }
+
+  .tc-civils .rangd div:nth-child(2),
+  .tc-civils .rangc div:nth-child(2),
+  .tc-civils .rangb div:nth-child(2),
+  .tc-civils .ranga div:nth-child(2),
+  .tc-civils .rangs div:nth-child(2),
+  .tc-civils .rangex div:nth-child(2) {
+    background-color: #505b4b;
+  }
+
+  .tc-civils .rangc div:nth-child(3),
+  .tc-civils .rangb div:nth-child(3),
+  .tc-civils .ranga div:nth-child(3),
+  .tc-civils .rangs div:nth-child(3),
+  .tc-civils .rangex div:nth-child(3) {
+    background-color: #5d6c54;
+  }
+
+  .tc-civils .rangb div:nth-child(4),
+  .tc-civils .ranga div:nth-child(4),
+  .tc-civils .rangs div:nth-child(4),
+  .tc-civils .rangex div:nth-child(4) {
+    background-color: #697e5d;
+  }
+
+  .tc-civils .ranga div:nth-child(5),
+  .tc-civils .rangs div:nth-child(5),
+  .tc-civils .rangex div:nth-child(5),
+  .tc-civils .t1 span {
+    background-color: #759067;
+  }
+
+  .tc-civils .rangs div:nth-child(6),
+  .tc-civils .rangex div:nth-child(6),
+  .tc-civils .t2 span {
+    background-color: #82a372;
+  }
+
+  .tc-civils .rangex div:nth-child(7),
+  .tc-civils .t3 span {
+    background-color: #91b97d;
+  }
+
+  .tc-empire .rangd div:nth-child(2),
+  .tc-empire .rangc div:nth-child(2),
+  .tc-empire .rangb div:nth-child(2),
+  .tc-empire .ranga div:nth-child(2),
+  .tc-empire .rangs div:nth-child(2),
+  .tc-empire .rangex div:nth-child(2) {
+    background-color: #3f4f43;
+  }
+
+  .tc-empire .rangc div:nth-child(3),
+  .tc-empire .rangb div:nth-child(3),
+  .tc-empire .ranga div:nth-child(3),
+  .tc-empire .rangs div:nth-child(3),
+  .tc-empire .rangex div:nth-child(3) {
+    background-color: #49564c;
+  }
+
+  .tc-empire .rangb div:nth-child(4),
+  .tc-empire .ranga div:nth-child(4),
+  .tc-empire .rangs div:nth-child(4),
+  .tc-empire .rangex div:nth-child(4) {
+    background-color: #4d6653;
+  }
+
+  .tc-empire .ranga div:nth-child(5),
+  .tc-empire .rangs div:nth-child(5),
+  .tc-empire .rangex div:nth-child(5),
+  .tc-empire .t1 span {
+    background-color: #51785b;
+  }
+
+  .tc-empire .rangs div:nth-child(6),
+  .tc-empire .rangex div:nth-child(6),
+  .tc-empire .t2 span {
+    background-color: #578963;
+  }
+
+  .tc-empire .rangex div:nth-child(7),
+  .tc-empire .t3 span {
+    background-color: #5c9e6c;
+  }
+
+  .tc-genesis .rangd div:nth-child(2),
+  .tc-genesis .rangc div:nth-child(2),
+  .tc-genesis .rangb div:nth-child(2),
+  .tc-genesis .ranga div:nth-child(2),
+  .tc-genesis .rangs div:nth-child(2),
+  .tc-genesis .rangex div:nth-child(2) {
+    background-color: #57455e;
+  }
+
+  .tc-genesis .rangc div:nth-child(3),
+  .tc-genesis .rangb div:nth-child(3),
+  .tc-genesis .ranga div:nth-child(3),
+  .tc-genesis .rangs div:nth-child(3),
+  .tc-genesis .rangex div:nth-child(3) {
+    background-color: #625467;
+  }
+
+  .tc-genesis .rangb div:nth-child(4),
+  .tc-genesis .ranga div:nth-child(4),
+  .tc-genesis .rangs div:nth-child(4),
+  .tc-genesis .rangex div:nth-child(4) {
+    background-color: #77617f;
+  }
+
+  .tc-genesis .ranga div:nth-child(5),
+  .tc-genesis .rangs div:nth-child(5),
+  .tc-genesis .rangex div:nth-child(5),
+  .tc-genesis .t1 span {
+    background-color: #8c6f97;
+  }
+
+  .tc-genesis .rangs div:nth-child(6),
+  .tc-genesis .rangex div:nth-child(6),
+  .tc-genesis .t2 span {
+    background-color: #a27eb2;
+  }
+
+  .tc-genesis .rangex div:nth-child(7),
+  .tc-genesis .t3 span {
+    background-color: #bc8fcf;
+  }
+
+  .tc-revo .rangd div:nth-child(2),
+  .tc-revo .rangc div:nth-child(2),
+  .tc-revo .rangb div:nth-child(2),
+  .tc-revo .ranga div:nth-child(2),
+  .tc-revo .rangs div:nth-child(2),
+  .tc-revo .rangex div:nth-child(2) {
+    background-color: #5b4c36;
+  }
+
+  .tc-revo .rangc div:nth-child(3),
+  .tc-revo .rangb div:nth-child(3),
+  .tc-revo .ranga div:nth-child(3),
+  .tc-revo .rangs div:nth-child(3),
+  .tc-revo .rangex div:nth-child(3) {
+    background-color: #6b5536;
+  }
+
+  .tc-revo .rangb div:nth-child(4),
+  .tc-revo .ranga div:nth-child(4),
+  .tc-revo .rangs div:nth-child(4),
+  .tc-revo .rangex div:nth-child(4) {
+    background-color: #896734;
+  }
+
+  .tc-revo .ranga div:nth-child(5),
+  .tc-revo .rangs div:nth-child(5),
+  .tc-revo .rangex div:nth-child(5),
+  .tc-revo .t1 span {
+    background-color: #a87933;
+  }
+
+  .tc-revo .rangs div:nth-child(6),
+  .tc-revo .rangex div:nth-child(6),
+  .tc-revo .t2 span {
+    background-color: #c78a31;
+  }
+
+  .tc-revo .rangex div:nth-child(7),
+  .tc-revo .t3 span {
+    background-color: #eba02f;
+  }
+
+  .tc-top {
+    display: flex;
+    margin-top: -63px;
+    margin-left: 10px;
+    z-index: 2;
+    position: relative;
+  }
+
+  .t1,
+  .t2,
+  .t3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+
+  .t1 span,
+  .t2 span,
+  .t3 span {
+    background-color: #444;
+    color: #ddd;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 10px;
+  }
+
+  .tcard-pk-bg {
+    margin: 0 auto;
+    background-color: #5b5b5b;
+    background-image: url(https://i.servimg.com/u/f84/12/49/78/99/untitl24.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 575px;
+    font-family: "Roboto Condensed";
+    padding-top: 25px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #cbcbcb;
+    text-align: justify;
+    position: relative;
+    padding-bottom: 10px;
+    border-radius: 5px 5px 5px 5px;
+  }
+
+  #pkmonglets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+
+  #pkmonglets span.poketabcont {
+    display: none;
+  }
+
+  #pkmonglets input {
+    display: none;
+  }
+
+  #pkmonglets input:checked + span.poketabcont {
+    display: flex;
+    width: 555px;
+    overflow: hidden;
+    border-radius: 3px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #pkmonglets span.poketabcont {
+  }
+
+  #pkmonglets label.poketab {
+    text-align: center;
+    border-radius: 100%;
+    padding: 5px;
+    border: 2px solid #2e2e2e;
+    background: #363636;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  #tabs2 {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pktalent {
+    background-color: #f5f5f5;
+    padding: 7px 20px 3px 10px;
+    clip-path: polygon(0 0, 98% 0, 93% 100%, 0% 100%);
+    width: 204px;
+    height: 30px;
+  }
+
+  .pk-att {
+    height: 140px;
+    overflow: auto;
+    overflow-y: scroll;
+    margin-top: 45px;
+    margin-left: -25px;
+    display: grid;
+    gap: 2px;
+    font-family: "Ubuntu Condensed";
+    font-size: 10px;
+  }
+
+  .pk-att::-webkit-scrollbar,
+  .poke-descr::-webkit-scrollbar {
+    display: none;
+  }
+
+  .poke-descr {
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    padding: 8px 15px;
+    width: 525px;
+    height: 60px;
+    color: #444;
+    font-family: "Roboto Condensed";
+    font-size: 13px;
+    text-align: justify;
+    overflow: auto;
+  }
+
+  .poke-container {
+    flex-wrap: wrap;
+    width: 575px;
+    background: rgba(46, 46, 46, 0.6);
+    display: flex;
+    font-size: 11px;
+    color: #444;
+    font-family: Roboto Condensed;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .poke-header {
+    display: flex;
+    width: 400px;
+    margin-top: 0px;
+    background: linear-gradient(90deg, #d6b55a, #735a4a);
+    clip-path: polygon(0 0, 71% 0, 68% 100%, 0% 100%);
+    margin-left: -10px;
+    gap: 25px;
+    overflow: hidden;
+    height: 40px;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-family: Poppins;
+    font-size: 15px;
+  }
+
+  .poke-header img {
+    background-color: #2e2e2e;
+    border: 5px solid rgba(255, 255, 255, 0.9);
+    height: 56px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    width: 68px;
+    border-radius: 100px;
+  }
+
+  .poke-infos {
+    display: flex;
+    align-items: center;
+  }
+
+  .poke-infos div:first-child {
+    display: flex;
+    flex-direction: column;
+    width: 105px;
+    background-color: #444;
+    color: white;
+  }
+
+  .poke-infos span {
+    padding: 5px 10px;
+    border-bottom: 2px solid #5d5d5d;
+  }
+
+  .poke-infos div:last-child {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    text-align: left;
+    width: 156px;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  }
+
+  .att {
+    display: flex;
+  }
+
+  .typsprite {
+    position: absolute;
+    margin-top: 172px;
+    margin-left: -167px;
+  }
+
+  .chroma {
+    position: absolute;
+    height: 20px;
+    margin-top: 108px;
+    z-index: 3;
+    mix-blend-mode: luminosity;
+    margin-left: -39px;
+  }
+
+  .lock {
+    display: none;
+  }
+
+  .box2 {
+    margin-left: -103px;
+    display: flex;
+  }
+
+  .poke-det {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .poke-det div:first-child {
+    margin-top: 15px;
+    width: 141px;
+    display: flex;
+    gap: 5px;
+  }
+
+  .poke-det div:nth-child(2) {
+    display: flex;
+    margin-left: -15px;
+  }
+
+  .poke-det div:nth-child(2) img {
+    background-color: #2e2e2e;
+    border-radius: 100%;
+    border: 6px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .poke-det div:nth-child(2) span {
+    background-color: #343b41;
+    border-radius: 100px;
+    border: 6px solid rgba(255, 255, 255, 0.4);
+    font-family: "Poppins";
+    font-size: 17px;
+    padding: 8px 1px 5px 2px;
+    width: 30px;
+    margin-left: -31px;
+    margin-top: 0px;
+    height: 20px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    color: #f4f4f4;
+  }
+
+  .poke-det div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: -180px;
+    margin-top: -30px;
+    flex-direction: column;
+  }
+
+  .poke-det div:last-child span {
+    background-color: #1f1f1f;
+    color: white;
+    font-family: "Roboto Condensed";
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 4px 16px 2px 14px;
+    width: fit-content;
+    clip-path: polygon(10% 0, 100% 0, 89% 100%, 0% 100%);
+  }
+
+  .poke-det div:last-child img {
+    opacity: 0;
+    height: 20px;
+  }
+
+  .shiny div:last-child img {
+    opacity: 1;
+  }
+
+  .att img {
+    background-color: #1f1f1f;
+    padding: 7px;
+    height: 15px;
+  }
+
+  .att div:nth-child(2) {
+    background-color: #2e2e2e;
+    color: #ddd;
+    padding: 7px 7px 0px 5px;
+    width: 80px;
+  }
+
+  .att div:last-child {
+    background-color: #f5f5f5;
+    padding: 7px 4px 0 2px;
+    width: 20px;
+    color: #444;
+  }
+
+  .tc-genesis .poke-header {
+    background: #bc8fcf;
+  }
+
+  .tc-empire .poke-header {
+    background: #5c9e6c;
+  }
+
+  .tc-civils .poke-header {
+    background: #91ba7d;
+  }
+
+  .tc-revo .poke-header {
+    background: #eba02f;
+  }
+
+  .boite-pkm {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 25px;
+    gap: 10px;
+  }
+
+  .clear-pkm {
+    height: 5px;
+    background: #2e2e2e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  @-webkit-keyframes pulsating {
+    to {
+      box-shadow: 0 0 0 25px rgba(255, 255, 255, 0);
+    }
+  }
+
+  @-moz-keyframes pulsating {
+    to {
+      box-shadow: 0 0 0 25px rgba(255, 255, 255, 0);
+    }
+  }
+
+  @-ms-keyframes pulsating {
+    to {
+      box-shadow: 0 0 0 25px rgba(255, 255, 255, 0);
+    }
+  }
+
+  @keyframes pulsating {
+    to {
+      box-shadow: 0 0 0 25px rgba(255, 255, 255, 0);
+    }
+  }
+
+  .nargan1,
+  .nargan2 {
+    background: url(https://www.zupimages.net/up/21/33/iljf.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #1f1f1f;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 3px;
+    color: #ddd;
+    font-family: Poppins;
+    text-transform: uppercase;
+    text-align: center;
+    border: 5px solid #181818;
+    line-height: 1.8;
+  }
+
+  .narganfloat {
+    display: flex;
+    margin-left: 5%;
+    gap: 15px;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .nargan1 div {
+    text-align: left;
+  }
+
+  .nargan2 textarea {
+    max-height: 100px;
+    max-width: 350px;
+  }
+
+  button,
+  .item button,
+  .but {
+    font-family: Poppins;
+    border-radius: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #2e2e2e;
+    color: #ddd;
+    margin-left: 2px;
+    border: none;
+  }
+
+  #pokemonSelected { color: #FF0000; }
+</style>
+
+<body>
+  <div class="narganfloat">
+    <div class="nargan1">
+      <h2>Ajouter un pokemon</h2>
+      <button onclick="addPokemon()">Ajoute bro</button>
+      <br>
+
+      <h2>Modifier un pokemon</h2>
+      <h5>Pokemon sélectionné : <br>
+        <pokemon id="pokemonSelected">Le P</pokemon>
+      </h5>
+      <form id="tCardform" onsubmit="fillTCard()">
+        <div>
+          Pokeball (URL)
+          <input
+            id="tCardform_Pokeball"
+            type="url"
+            size="50"
+            value="https://www.pokebip.com/pages/icones/balls/bis.png"
+          />
+          <br />
+          Mini Sprite (URL)
+          <input
+            id="tCardform_MiniSprite"
+            type="url"
+            size="50"
+            value="https://www.pokencyclopedia.info/sprites/spin-off/o_ranger/o_ranger_395.png"
+          />
+          <br />
+          Sprite (URL)
+          <input
+            id="tCardform_Sprite"
+            type="url"
+            size="50"
+            value="https://www.pokencyclopedia.info/sprites/gen5/ani_black-white/ani_bw_395.gif"
+          />
+          <br />
+          Type 1 (URL)
+          <input
+            id="tCardform_Type1"
+            type="url"
+            size="50"
+            value="https://i.servimg.com/u/f40/18/51/38/10/eau10.png"
+          />
+          <br />
+          Type 2 (URL)
+          <input
+            id="tCardform_Type2"
+            type="url"
+            size="50"
+            value="https://i.servimg.com/u/f40/18/51/38/10/glace10.png"
+          />
+          <br />
+          Nom
+          <input
+            id="tCardform_Nom"
+            type="text"
+            value="Le P"
+          /><br />
+          Espèce
+          <input
+            id="tCardform_Espece"
+            type="text"
+            value="Pingouin Légendaire"
+          /><br />
+          Obtention
+          <input
+            id="tCardform_Obtention"
+            type="text"
+            value="On ne peux obtenir le P"
+          /><br />
+          Déclaré ?
+          <select id="tCardform_Declare">
+            <option value="oui">Oui</option>
+            <option value="non">Non</option></select
+          ><br />
+          Shiny ?
+          <select id="tCardform_Shiny">
+            <option value="3">Oui</option>
+            <option value="2">Non</option></select
+          ><br />
+          Rang
+          <select id="tCardform_Rang">
+            <option value="d">D</option>
+            <option value="c">C</option>
+            <option value="b">B</option>
+            <option value="a">A</option>
+            <option value="s">S</option>
+            <option value="ex">EX</option></select
+          ><br /> 
+          Genre
+          <select id="tCardform_Genre">
+            <option value="♂">♂</option>
+            <option value="♀">♀</option>
+            <option value="ø">ø</option></select
+          ><br />            
+          Talent
+          <input
+            id="tCardform_Talent"
+            type="text"
+            value="Est le P"
+          /><br />
+          Talent description <br />
+          <textarea
+            id="tCardform_TalentDescription"
+            type="textarea"
+            cols="50"
+            rows="5" 
+            value="https://www.pokencyclopedia.info/sprites/gen5/ani_black-white/ani_bw_395.gif"
+          ></textarea>
+          <br />
+          Pokemon Description <br />
+          <textarea
+            id="tCardform_PokemonDescription"
+            type="textarea"
+            cols="50"
+            rows="5" 
+            value="https://www.pokencyclopedia.info/sprites/gen5/ani_black-white/ani_bw_395.gif"
+          ></textarea>
+          <br />
+        </div>
+        <br />
+        <button type="button" onclick="fillTCard()">Update</button>
+        <!--<button type="button" onclick="clearForm()">Clear</button>-->
+      </form>
+    </div>
+
+    <div class="nargan2">
+      <h2>Ajouter un objet ou une CT/DT</h2>
+      <form id="addItemForm" onsubmit="addItem();return false">
+        <input
+          type="radio"
+          id="addItemForm_Objet"
+          name="type"
+          value="Objet"
+          required
+        />
+        <label for="html">Objet</label>
+        <input type="radio" id="addItemForm_CTDT" name="type" value="CTDT" />
+        <label for="css">CT/DT</label><br />
+        Icone (URL)
+        <input id="addItemForm_Icone" type="url" required /><br />
+        Nom
+        <input id="addItemForm_Nom" type="text" required /><br />
+        Quantité
+        <input id="addItemForm_Quantite" type="number" required /><br />
+        <br />
+        <input
+          class="but"
+          name="submitObjet"
+          type="submit"
+          value="Ajouter à l'inventaire"
+        />
+      </form>
+      <br />
+      <h2>CODE à COPIER</h2>
+      <div>
+        <textarea id="textAreaCode" rows="30" cols="150"></textarea><br /><br />
+        <div class="tooltip">
+          <button onclick="copyToClipboard()" onmouseout="outFunc()">
+            <span class="tooltiptext" id="myTooltip"
+              >Copier dans le presse-papier</span
+            >
+            Copier
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="tcardId-pokemon" class="tcard-pk-bg tc-civils evtc">
+      <div id="pkmonglets">
+        <div id="tabs2">
+          <!---<br />ONGLETS POKEMON--->
+          <label for="p1" class="poketab evtab">
+            <img class="tCard_Pokeball" src="https://www.pokebip.com/pages/icones/balls/bis.png" />
+          </label>
+        </div>
+
+        <input id="p1" type="radio" name="poketabs" checked />
+        <span class="poketabcont">
+          <div class="poke-container">
+            <div class="pk-box">
+              <div class="poke-header evsal">
+                <!---MINI-SPRITE--->
+                <img class="tCard_MiniSprite" src="https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/regular/empoleon.png"/>
+                <!---SURNOM PKM--->
+                <span class="tCard_Nom">Le P</span>
+              </div>
+              <div class="poke-infos">
+                <div>
+                  <span>Espèce</span>
+                  <span>Obtention</span>
+                  <span>Déclaré ?</span>
+                  <span>talent</span>
+                </div>
+                <div>
+                  <!---INFOS PKM--->
+                  <span class="tCard_Espece">Pingouin Légendaire</span>
+                  <span class="tCard_Obtention">Impossible</span>
+                  <span class="tCard_Declare">NON</span>
+                  <span class="tCard_Talent">Est le P</span>
+                </div>
+              </div>
+              <!---TALENT--->
+              <div class="pktalent tCard_TalentDescription">Il n'y a plus grand talent qu'être le P.</div>
+            </div>
+            <div class="box2">
+              <!---SHINY--->
+              <div class="poke-det tCard_Shiny">
+                <!---TYPE--->
+                <div>
+                  <img class="tCard_Type1" src="https://i.servimg.com/u/f40/18/51/38/10/eau10.png"/>
+                  <img class="tCard_Type2" src="https://i.servimg.com/u/f40/18/51/38/10/glace10.png"/>
+                </div>
+                <!---SPRITE--->
+                <div>
+                  <img class="tCard_Sprite" src="https://img.pokemondb.net/sprites/black-white/anim/normal/empoleon.gif"/>
+                  <!---RANG--->
+                  <span class="tCard_Rang">EX</span>
+                </div>
+                <div>
+                  <img src="https://www.pokepedia.fr/images/2/28/Miniature_Chromatique_EB.png"/>
+                  <!---GENRE--->
+                  <span class="tCard_Genre">♂</span>
+                </div>
+              </div>
+              <div class="pk-att">
+                <!---ATTAQUE--->
+                <div class="att">
+                  <img src="https://i.servimg.com/u/f78/16/93/00/04/tenebr10.png"/>
+                  <div>arrogance</div>
+                  <div>lvl</div>
+                </div>
+                <!---ATTAQUE--->
+                <div class="att">
+                  <img src="https://i.servimg.com/u/f78/16/93/00/04/normal11.png" />
+                  <div>Le-P</div>
+                  <div>lvl</div>
+                </div>
+                <!---FIN--->
+              </div>
+            </div>
+          </div>
+          <!---DESCRIPTION--->
+          <div class="poke-descr tCard_PokemonDescription">Le P n'a pas besoin d'une description. Il est le P.</div>
+          <!---FIN POKEMON--->
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
