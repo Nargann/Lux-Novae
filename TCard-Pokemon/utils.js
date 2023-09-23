@@ -105,6 +105,18 @@ function loadForm() {
     }     
 }
 
+function getSelectedPokemon() {
+    var poketabs = document.getElementsByName('poketabs');
+    for (let i = 0; i < poketabs.length; i++) {
+        const poketab = poketabs[i];
+        if (poketab.checked == true) {
+            let pokecont = poketab.nextElementSibling;
+            return pokecont;
+        }
+    } 
+    return "Pokecont not found";
+}
+
 function setSelectedPokemon() {
     let poketabs = document.getElementsByName("poketabs");
     for (let i = 0; i < poketabs.length; i++) {
@@ -161,7 +173,7 @@ function outFunc() {
 
 function addPokemon() {
     // Ajouter une tab à la div tabs2
-    var forLabelTab = "p" + (document.getElementsByName("poketabs").length + 1);
+    var forLabelTab = "p" + Date.now();
     var tabs2 = document.getElementById('tabs2');
 
 
@@ -170,6 +182,7 @@ function addPokemon() {
     labelTab.className = "poketab evtab";
     labelTab.checked = true;
     labelTab.setAttribute('onclick', 'reloadPokemon(this)');
+    labelTab.setAttribute('oncontextmenu', 'deletePokemon(event,this)');
 
     const imgTab = document.createElement('img');
     imgTab.className = "tCard_Pokeball";
@@ -195,54 +208,56 @@ function addPokemon() {
 
     document.getElementById(forLabelTab).checked = true;
     loadForm();
-
-
-
     refreshTextArea();
-   
 }
 
-function addItem() {
-    var objets;
-    if (document.getElementById('addItemForm_Objet').checked) {
-        objets = document.getElementById("objets");
-    } else {
-        objets = document.getElementById("ctdts");
+function deletePokemon(e, label) {
+    e.preventDefault();
+    var deleteConfirmed = confirm("Supprimer ce pokemon ?");
+    if(deleteConfirmed) {
+        var pokemonID = label.getAttribute('for');
+        var pokemon = document.getElementById(pokemonID);
+        pokemon.remove();
+        label.remove();
+        console.log("Deleted " + pokemonID);
+
+        if (document.getElementsByClassName('poketab').length > 0) {
+            reloadPokemon(document.getElementsByClassName('poketab')[0]);
+        }
     }
-    
-    const divParent = document.createElement('div');
-    divParent.className += "item";
+}
 
-    const divIcone = document.createElement('div');
-    const divNom = document.createElement('div');
-    const divQuantite = document.createElement('div');
+function addAttack() {
+    var pokecont = getSelectedPokemon();
+    var divPkAtt = pokecont.getElementsByClassName('pk-att')[0];
+    // Construction
+    const divAtt = document.createElement('div');
+    divAtt.className = "att";
+    divAtt.setAttribute('oncontextmenu', 'deleteAttack(event,this)');
     const img = document.createElement('img');
-    img.src = addItemForm_Icone.value;
+    img.src = addAttackForm_Type.value;
+    const divNom = document.createElement('div');
+    divNom.textContent = addAttackForm_Nom.value;
+    const divObtention = document.createElement('div');
+    divObtention.textContent = addAttackForm_Obtention.value;
+    // Ajout
+    divAtt.appendChild(img);
+    divAtt.appendChild(divNom);
+    divAtt.appendChild(divObtention);
+    divPkAtt.appendChild(divAtt);
 
-    const buttonSubstract = document.createElement('button');
-    buttonSubstract.className += "substract";
-    buttonSubstract.textContent = "-";
-
-    const buttonAdd = document.createElement('button');
-    buttonAdd.className += "add";
-    buttonAdd.textContent = "+";
-
-    /*const buttonDelete = document.createElement('button');
-    buttonSubstract.className += "delete";*/
-
-    divNom.textContent = addItemForm_Nom.value;
-    divQuantite.textContent = "x"+addItemForm_Quantite.value;
-
-    divIcone.appendChild(img);
-    divParent.appendChild(divIcone);
-    divParent.appendChild(divNom);
-    divParent.appendChild(divQuantite);
-    divParent.appendChild(buttonSubstract);
-    divParent.appendChild(buttonAdd);
-
-    objets.appendChild(divParent);
-    clearForm('addItemForm');
+    clearForm('addAttackForm');
     refreshTextArea();
+}
+
+function deleteAttack(event, att) {
+    event.preventDefault();
+    var deleteConfirmed = confirm("Supprimer cette attaque ?");
+    if(deleteConfirmed) {
+        att.remove();
+        console.log("Deleted attack" + pokemonID);
+        refreshTextArea();
+    }    
 }
 
 function addOne() {
