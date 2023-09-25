@@ -1,31 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     loadItemHTML();
     loadForm();
-
-    // Add Event Listener to Poketab to reload Form on click
-    var poketabList = document.getElementsByClassName('poketab');
-    for (let i = 0; i < poketabList.length; i++) {
-        const element = poketabList[i];
-        element.setAttribute('onclick', 'reloadPokemon(this)');      
-    }
-
-
-    // Add Event Listener to + and -
-    var btnPlus = document.getElementsByClassName('add');
-    for (var i = 0; i < btnPlus.length; i++) {
-        var element = btnPlus[i];
-        element.addEventListener("click", addOne);     
-    }
-    var btnPlus = document.getElementsByClassName('substract');
-    for (var i = 0; i < btnPlus.length; i++) {
-        var element = btnPlus[i];
-        element.addEventListener("click", substractOne);     
-    }       
+    refreshListeners();
 
 }, false);
 
-function reloadPokemon (element) {
-    console.log("reload");
+
+function reloadPokemon () {
+    console.log("reload ");
+    document.getElementById(this.getAttribute('for')).checked = true;
+    loadForm();
+}
+
+function resetPokemon (element) {
+    console.log("reset " + element);
     document.getElementById(element.getAttribute('for')).checked = true;
     loadForm();
 }
@@ -34,6 +22,23 @@ function refreshTextArea() {
     hideSubAdd();
     document.getElementById("textAreaCode").value = document.getElementById('tcardId-pokemon').outerHTML; 
     showSubAdd();
+}
+
+function refreshListeners() {
+    //Poketabs
+    var labelTab = document.getElementsByClassName('poketab');
+    for (let i = 0; i < labelTab.length; i++) {
+        const element = labelTab[i];
+        element.addEventListener("click", reloadPokemon);
+        element.addEventListener("contextmenu", deletePokemon);
+    }  
+
+    //Attacks
+    var attacks = document.getElementsByClassName('att');
+    for (var i = 0; i < attacks.length; i++) {
+        var attack = attacks[i];
+        attack.addEventListener("contextmenu", deleteAttack);     
+    }    
 }
 
 function loadItemHTML() {
@@ -146,7 +151,11 @@ function fillTCard() {
             poketabcont.getElementsByClassName("tCard_Espece")[0].textContent =  document.getElementById("tCardform_Espece").value;
             poketabcont.getElementsByClassName("tCard_Obtention")[0].textContent = document.getElementById("tCardform_Obtention").value;
             poketabcont.getElementsByClassName("tCard_Declare")[0].textContent = document.getElementById("tCardform_Declare").value;
-            poketabcont.getElementsByClassName("tCard_Shiny")[0].classList.length = document.getElementById("tCardform_Shiny").value;
+            if(document.getElementById("tCardform_Shiny").value == 3)
+                poketabcont.getElementsByClassName("tCard_Shiny")[0].classList.add("shiny");   
+            else
+                poketabcont.getElementsByClassName("tCard_Shiny")[0].classList.remove("shiny"); 
+            console.log(poketabcont.getElementsByClassName("tCard_Shiny")[0].classList.value); 
             poketabcont.getElementsByClassName("tCard_Rang")[0].textContent = document.getElementById("tCardform_Rang").value;
             poketabcont.getElementsByClassName("tCard_Genre")[0].textContent = document.getElementById("tCardform_Genre").value;
             poketabcont.getElementsByClassName("tCard_Talent")[0].textContent = document.getElementById("tCardform_Talent").value;
@@ -176,13 +185,10 @@ function addPokemon() {
     var forLabelTab = "p" + Date.now();
     var tabs2 = document.getElementById('tabs2');
 
-
-    const labelTab = document.createElement('label');
+    var labelTab = document.createElement('label');
     labelTab.setAttribute('for', forLabelTab);
     labelTab.className = "poketab";
     labelTab.checked = true;
-    labelTab.setAttribute('onclick', 'reloadPokemon(this)');
-    labelTab.setAttribute('oncontextmenu', 'deletePokemon(event,this)');
 
     const imgTab = document.createElement('img');
     imgTab.className = "tCard_Pokeball";
@@ -209,20 +215,21 @@ function addPokemon() {
     document.getElementById(forLabelTab).checked = true;
     loadForm();
     refreshTextArea();
+    refreshListeners();
 }
 
-function deletePokemon(e, label) {
+function deletePokemon(e) {
     e.preventDefault();
     var deleteConfirmed = confirm("Supprimer ce pokemon ?");
     if(deleteConfirmed) {
-        var pokemonID = label.getAttribute('for');
+        var pokemonID = this.getAttribute('for');
         var pokemon = document.getElementById(pokemonID);
         pokemon.remove();
-        label.remove();
+        this.remove();
         console.log("Deleted " + pokemonID);
 
         if (document.getElementsByClassName('poketab').length > 0) {
-            reloadPokemon(document.getElementsByClassName('poketab')[0]);
+            resetPokemon(document.getElementsByClassName('poketab')[0]);
         }
     }
 }
@@ -233,7 +240,6 @@ function addAttack() {
     // Construction
     const divAtt = document.createElement('div');
     divAtt.className = "att";
-    divAtt.setAttribute('oncontextmenu', 'deleteAttack(event,this)');
     const img = document.createElement('img');
     img.src = addAttackForm_Type.value;
     const divNom = document.createElement('div');
@@ -248,39 +254,18 @@ function addAttack() {
 
     clearForm('addAttackForm');
     refreshTextArea();
+    refreshListeners();
 }
 
-function deleteAttack(event, att) {
-    event.preventDefault();
+function deleteAttack(e) {
+    console.log("attack = " + this.innerHTML);
+    e.preventDefault();
     var deleteConfirmed = confirm("Supprimer cette attaque ?");
     if(deleteConfirmed) {
-        att.remove();
-        console.log("Deleted attack" + pokemonID);
+        this.remove();
+        console.log("Deleted attack");
         refreshTextArea();
-    }    
-}
-
-function addOne() {
-    quantite = this.previousElementSibling.previousElementSibling;
-    number = quantite.textContent.split("x")[1];
-    number++;
-    number = "x"+number;
-    quantite.textContent = number;
-    refreshTextArea();
-}
-
-function substractOne() {
-    quantite = this.previousElementSibling;
-    number = quantite.textContent.split("x")[1];
-    if (number != 1){ 
-        number--;
-    } else {
-        removeItem(quantite.parentElement);
-    }
-
-    number = "x"+number;
-    quantite.textContent = number;
-    refreshTextArea();
+    } 
 }
 
 function removeItem(item){
