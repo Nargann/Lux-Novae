@@ -223,8 +223,10 @@ function deletePokemon(e) {
     var deleteConfirmed = confirm("Supprimer ce pokemon ?");
     if(deleteConfirmed) {
         var pokemonID = this.getAttribute('for');
-        var pokemon = document.getElementById(pokemonID);
-        pokemon.remove();
+        var pokemonInput = document.getElementById(pokemonID);
+        var pokemonSpan = pokemonInput.nextElementSibling;
+        pokemonInput.remove();
+        pokemonSpan.remove();
         this.remove();
         console.log("Deleted " + pokemonID);
 
@@ -232,6 +234,7 @@ function deletePokemon(e) {
             resetPokemon(document.getElementsByClassName('poketab')[0]);
         }
     }
+    refreshTextArea();
 }
 
 function addAttack() {
